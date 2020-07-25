@@ -2,15 +2,22 @@
 
 #include<iostream>
 #include<string>
+#include<fstream>
+#include<map>
+#include<vector>
 
 using namespace std;
 
 struct morseCodeTree
 {
-	morseCodeTree();
+	morseCodeTree()
+	{
+		left = NULL;
+		right = NULL;
+	}
 
 	string letter;
 	string morseCode;
-	morseCodeTree *l;
-	morseCodeTree *r;
+	morseCodeTree *left;
+	morseCodeTree *right;
 };

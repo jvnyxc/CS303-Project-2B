@@ -16,7 +16,6 @@ public:
 	MorseCode();
 	
 	//Function
-	string getLetter(string morsecode); //
 	string encrypt(string word); //turn the word into morse code
 	string decrypt(string morsecode); //turn morse code into word
 	void addLetterToTree(char letter, string morsecode); //used to build the morse code tree
