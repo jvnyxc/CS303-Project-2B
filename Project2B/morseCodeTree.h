@@ -17,7 +17,7 @@ struct morseCodeTree
 	}
 
 	string letter;
-	string morseCode;
+	string morsecode;
 	morseCodeTree *left;
 	morseCodeTree *right;
 };
