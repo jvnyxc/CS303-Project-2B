@@ -12,10 +12,41 @@ morseCode::morseCode()
 
 string morseCode::encrypt(string word)
 {
+	string message;
+	for (int i = 0; i < word.length(); i++)
+	{
+		message += morseCodeTreeMap[word[i]];
+	}
+	message.pop_back();
+	return string(message);
 }
 
 string morseCode::decrypt(string morsecode)
 {
+	string message;
+	while (!morsecode.empty())
+	{
+		morseCodeTree* currentNode = root;
+		string subMorseCode = morsecode.substr(0, morsecode.find(" "));
+		for (int i = 0; i < subMorseCode.length(); i++)
+		{
+			if (currentNode == NULL)
+			{
+				cout << "The tree is empty...";
+			}
+			if (morsecode[i] == '.')
+			{
+				currentNode = currentNode->left;
+			}
+			else
+			{
+				currentNode = currentNode->right;
+			}
+		} 
+		message += currentNode->letter;
+		morsecode.erase(0, morsecode.find_first_of(" ") + 1);
+	}
+	return message;
 }
 
 void morseCode::addLetterToTree(char letterToAdd, string morsecode)
