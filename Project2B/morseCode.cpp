@@ -18,7 +18,7 @@ string morseCode::encrypt(string word)
 		message += morseCodeTreeMap[word[i]];
 	}
 	message.pop_back();
-	return string(message);
+	return message;
 }
 
 string morseCode::decrypt(string morsecode)
@@ -32,7 +32,7 @@ string morseCode::decrypt(string morsecode)
 		{
 			if (currentNode == NULL)
 			{
-				cout << "The tree is empty...";
+				cout << "Tree is empty";
 			}
 			if (morsecode[i] == '.')
 			{
