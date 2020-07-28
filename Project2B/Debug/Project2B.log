@@ -1,5 +1,8 @@
-﻿  morseCode.cpp
-C:\Users\Jayson\Documents\CS 303\Project2B\Project2B\morseCode.cpp(16,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Jayson\Documents\CS 303\Project2B\Project2B\morseCode.cpp(31,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Jayson\Documents\CS 303\Project2B\Project2B\morseCode.cpp(56,20): warning C4018: '<=': signed/unsigned mismatch
+﻿  Main.cpp
+C:\Users\Jayson\Documents\CS 303\Project2B\Project2B\Main.cpp(19,21): warning C4018: '<=': signed/unsigned mismatch
+  morseCode.cpp
+C:\Users\Jayson\Documents\CS 303\Project2B\Project2B\morseCode.cpp(17,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Jayson\Documents\CS 303\Project2B\Project2B\morseCode.cpp(32,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Jayson\Documents\CS 303\Project2B\Project2B\morseCode.cpp(57,20): warning C4018: '<=': signed/unsigned mismatch
+  Generating Code...
   Project2B.vcxproj -> C:\Users\Jayson\Documents\CS 303\Project2B\Debug\Project2B.exe

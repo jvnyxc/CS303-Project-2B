@@ -13,73 +13,75 @@ morseCode::morseCode()
 string morseCode::encrypt(string word)
 {
 	string message;
+	//goes through each letter of the word
 	for (int i = 0; i < word.length(); i++)
 	{
+		//then add the morsecode to the message from the map
 		message += morseCodeTreeMap[word[i]];
 	}
-	message.pop_back();
 	return message;
 }
 
 string morseCode::decrypt(string morsecode)
 {
 	string message;
-	while (!morsecode.empty())
+	while (!morsecode.empty()) //goes through the entire morse code
 	{
 		morseCodeTree* currentNode = root;
-		string subMorseCode = morsecode.substr(0, morsecode.find(" "));
-		for (int i = 0; i < subMorseCode.length(); i++)
+		string subMorseCode = morsecode.substr(0, morsecode.find(" ")); //creates a substring from the first morse code symbol
+		for (int i = 0; i < subMorseCode.length(); i++) //goes through each character of the substring
 		{
-			if (currentNode == NULL)
+			if (currentNode == NULL) //in case part of the tree is still entire
 			{
 				cout << "Tree is empty";
 			}
-			if (morsecode[i] == '.')
+			if (morsecode[i] == '.') //if the character is a . go left
 			{
 				currentNode = currentNode->left;
 			}
-			else
+			else //else the character is a - so go right
 			{
 				currentNode = currentNode->right;
 			}
 		} 
-		message += currentNode->letter;
-		morsecode.erase(0, morsecode.find_first_of(" ") + 1);
+		message += currentNode->letter; //once at the end add the letter to the message variable
+		morsecode.erase(0, morsecode.find_first_of(" ") + 1); //erase the substring that already been translated and repeat until there no code left to translate
 	}
 	return message;
 }
 
 void morseCode::addLetterToTree(char letterToAdd, string morsecode)
 {
-	morseCodeTreeMap[letterToAdd] = morsecode;
-	morseCodeTree* currentNode = root;
-	for (int i = 0; i <= morsecode.length(); i++)
+	morseCodeTreeMap[letterToAdd] = morsecode; //adding to the map
+	morseCodeTree* currentNode = root; //to start at the root of the tree
+	for (int i = 0; i <= morsecode.length(); i++) //goes through the entire morse code
 	{
-		if (morsecode[i] == '.')
+		if (morsecode[i] == '.') //if character is . then go left
 		{
-			if (currentNode->left == NULL)
+			if (currentNode->left == NULL) //if the node does exist yet create a node
 			{
 				currentNode->left = new morseCodeTree;
 				currentNode = currentNode->left;
 			}
-			else
+			else //if the node already exist then just move through the tree
 			{
 				currentNode = currentNode->left;
 			}
 		}
-		else if (morsecode[i] == '-' || morsecode[i] == '_')
+		else if (morsecode[i] == '-' || morsecode[i] == '_') //if character is -/_ then go left
 		{
-			if (currentNode->right == NULL)
+			if (currentNode->right == NULL) //if the node does exist yet create a node
 			{
 				currentNode->right = new morseCodeTree;
 				currentNode = currentNode->right;
 			}
-			else
+			else //if the node already exist then just move through the tree
 			{
 				currentNode = currentNode->right;
 			}
 		}
 	}
+	//finally at the end add the data values to the nodes
 	currentNode->morsecode = morsecode;
 	currentNode->letter = letterToAdd;
 }

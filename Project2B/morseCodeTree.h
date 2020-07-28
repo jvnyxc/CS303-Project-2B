@@ -12,12 +12,13 @@ struct morseCodeTree
 {
 	morseCodeTree()
 	{
+		//subtree should start out null since nothing is inside them yet
 		left = NULL;
 		right = NULL;
 	}
 
 	string letter;
 	string morsecode;
-	morseCodeTree *left;
-	morseCodeTree *right;
+	morseCodeTree *left; //left subtree pointer
+	morseCodeTree *right; //right subtree pointer
 };
